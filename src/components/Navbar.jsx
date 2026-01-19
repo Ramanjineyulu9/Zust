@@ -25,6 +25,7 @@ const Navbar = () => {
     ];
 
     const isHomePage = location.pathname === '/';
+    const shouldShowSolid = scrolled || !isHomePage;
 
     const handleLinkClick = (e, href) => {
         if (isHomePage && href.startsWith('/#')) {
@@ -39,18 +40,19 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm py-2' : 'bg-transparent py-4'}`}
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${shouldShowSolid ? 'bg-white shadow-sm py-2' : 'bg-transparent py-4'}`}
             style={{
                 position: 'fixed',
                 width: '100%',
                 top: 0,
                 left: 0,
                 zIndex: 50,
-                backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-                backdropFilter: scrolled ? 'blur(10px)' : 'none'
+                backgroundColor: shouldShowSolid ? 'rgba(255, 255, 255, 0.98)' : 'transparent',
+                backdropFilter: shouldShowSolid ? 'blur(10px)' : 'none',
+                color: shouldShowSolid ? '#1e293b' : 'inherit'
             }}>
             <div className="container flex justify-between items-center">
-                <Link to="/" className="flex items-center gap-2">
+                <Link to="/" className="flex items-center gap-2" style={{ color: shouldShowSolid ? '#0f172a' : 'inherit' }}>
                     <img src="/logo.svg" alt="Zustnext Logo" style={{ width: '40px', height: '40px' }} />
                     <span className="text-2xl font-extrabold tracking-tight">
                         Zust<span className="text-primary-blue">next</span>
@@ -58,7 +60,7 @@ const Navbar = () => {
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className="hidden md-flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-8">
                     <div className="flex items-center gap-8">
                         {navLinks.map((link) => (
                             <Link
@@ -66,7 +68,10 @@ const Navbar = () => {
                                 to={link.href}
                                 onClick={(e) => handleLinkClick(e, link.href)}
                                 className="font-medium nav-hover-link"
-                                style={{ position: 'relative' }}
+                                style={{
+                                    position: 'relative',
+                                    color: shouldShowSolid ? '#475569' : 'inherit'
+                                }}
                             >
                                 {link.name}
                             </Link>

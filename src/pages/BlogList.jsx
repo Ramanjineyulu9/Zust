@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 
 const BlogList = () => {
     return (
-        <div className="bg-white min-h-screen pt-32 pb-20">
+        <div className="bg-white min-h-screen pt-40 pb-20">
             <div className="container">
                 <div className="text-center mb-16">
                     <motion.h1

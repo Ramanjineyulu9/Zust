@@ -24,7 +24,7 @@ const BlogDetail = () => {
     }
 
     return (
-        <div className="bg-white min-h-screen pt-32 pb-20">
+        <div className="bg-white min-h-screen pt-40 pb-20">
             <div className="container max-w-4xl">
                 <Link
                     to="/blog"
