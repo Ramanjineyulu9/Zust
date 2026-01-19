@@ -94,7 +94,7 @@ const Contact = () => {
                             </div>
                             <div>
                                 <h4 className="contact-label">Call Us</h4>
-                                <p className="contact-value">+91 9951029140</p>
+                                <p className="contact-value">+91 9182117269</p>
                             </div>
                         </div>
 
@@ -122,15 +122,15 @@ const Contact = () => {
                             <div className="form-grid">
                                 <div className="form-group">
                                     <label className="form-label">First Name</label>
-                                    <input type="text" name="user_firstname" placeholder="Ram" className="form-input" required />
+                                    <input type="text" name="user_firstname" placeholder="First Name" className="form-input" required />
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">Last Name</label>
-                                    <input type="text" name="user_lastname" placeholder="P" className="form-input" required />
+                                    <input type="text" name="user_lastname" placeholder="Last Name" className="form-input" required />
                                 </div>
                                 <div className="form-group full-width">
                                     <label className="form-label">Business Email</label>
-                                    <input type="email" name="user_email" placeholder="ram@company.com" className="form-input" required />
+                                    <input type="email" name="user_email" placeholder="zustnext.com@gmail.com" className="form-input" required />
                                 </div>
                                 <div className="form-group full-width">
                                     <label className="form-label">Project Description</label>
