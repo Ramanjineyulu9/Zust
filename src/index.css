@@ -48,11 +48,28 @@ ul {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
 
 .section {
-  padding: 80px 0;
+  padding: 50px 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .flex {
@@ -131,13 +148,13 @@ ul {
 
 /* Typography */
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 800;
 }
 

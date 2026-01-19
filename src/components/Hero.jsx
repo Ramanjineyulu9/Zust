@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 const Hero = () => {
     return (
-        <section id="home" className="section relative flex items-center min-h-screen pt-20" style={{ position: 'relative', overflow: 'hidden' }}>
+        <section id="home" className="section relative flex items-center min-h-screen pt-20 overflow-hidden" style={{ position: 'relative' }}>
             {/* Dynamic Background Elements */}
             <motion.div
                 animate={{
