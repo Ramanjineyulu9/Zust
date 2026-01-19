@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Products from './components/Products';
-import About from './components/About';
-import Contact from './components/Contact';
-import BlogSection from './components/BlogSection';
+import Hero from '../components/Hero';
+import Services from '../components/Services';
+import Products from '../components/Products';
+import About from '../components/About';
+import Contact from '../components/Contact';
+import BlogSection from '../components/BlogSection';
 
 const Home = () => {
     const { pathname, hash } = useLocation();
