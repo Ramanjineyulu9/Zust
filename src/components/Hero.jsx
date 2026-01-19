@@ -39,19 +39,20 @@ const Hero = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
+                    className="text-center lg:text-left"
                 >
                     <h1 className="mb-6">
                         Everything you need to <span className="text-primary-blue">Optimize</span> your business
                     </h1>
-                    <p className="text-xl text-slate-600 mb-8" style={{ maxWidth: '500px' }}>
+                    <p className="text-xl text-slate-600 mb-8 mx-auto lg:mx-0" style={{ maxWidth: '500px' }}>
                         Zustnext empowers your business with cutting-edge analytics, automation, and high-performance applications designed to drive real growth.
                     </p>
-                    <div className="flex flex-wrap gap-4 mb-8">
+                    <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
                         <motion.a
                             href="#contact"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="btn btn-primary"
+                            className="btn btn-primary w-full sm:w-auto"
                             style={{ padding: '1rem 2rem', fontSize: '1.25rem', textDecoration: 'none' }}
                         >
                             Start Free Trial
@@ -61,7 +62,7 @@ const Hero = () => {
                             target="_blank"
                             whileHover={{ scale: 1.05, backgroundColor: '#f1f5f9' }}
                             whileTap={{ scale: 0.95 }}
-                            className="btn"
+                            className="btn w-full sm:w-auto"
                             style={{ backgroundColor: 'white', border: '1px solid var(--border-light)', padding: '1rem 2rem', fontSize: '1.25rem', textDecoration: 'none' }}
                         >
                             Watch Demo
