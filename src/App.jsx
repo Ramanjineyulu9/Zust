@@ -1,23 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Products from './components/Products';
-import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import BlogList from './pages/BlogList';
+import BlogDetail from './pages/BlogDetail';
 
 function App() {
   return (
-    <div className="app-container">
-      <Navbar />
-      <Hero />
-      <Services />
-      <Products />
-      <About />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div className="app-container">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
