@@ -1,10 +1,54 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Contact = () => {
+    const formRef = useRef();
+    const [loading, setLoading] = useState(false);
+
+    const sendEmail = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        const formData = new FormData(formRef.current);
+
+        const data = {
+            firstname: formData.get('user_firstname'),
+            lastname: formData.get('user_lastname'),
+            email: formData.get('user_email'),
+            message: formData.get('message'),
+        };
+
+        try {
+            // Using a relative path which will be proxied by Vite locally
+            // or handled by Vercel in production
+            const res = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            const result = await res.json();
+
+            if (res.ok && result.success) {
+                toast.success('Message sent successfully! We will get back to you soon.');
+                formRef.current.reset();
+            } else {
+                console.error(result);
+                toast.error(result.message || 'Failed to send message. Please try again.');
+            }
+        } catch (err) {
+            console.error(err);
+            toast.error('Something went wrong. Please check your connection.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <section id="contact" className="section bg-white">
+            <Toaster position="top-center" reverseOrder={false} />
             <div className="container">
                 <div className="text-center mb-16" style={{ marginBottom: '4rem' }}>
                     <motion.h2
@@ -72,34 +116,35 @@ const Contact = () => {
                         style={{ gridColumn: 'span 2' }}
                         className="mobile-full-width"
                     >
-                        <form className="contact-form-container">
+                        <form ref={formRef} onSubmit={sendEmail} className="contact-form-container">
                             <div className="form-gradient-bar"></div>
 
                             <div className="form-grid">
                                 <div className="form-group">
                                     <label className="form-label">First Name</label>
-                                    <input type="text" placeholder="Ram" className="form-input" />
+                                    <input type="text" name="user_firstname" placeholder="Ram" className="form-input" required />
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">Last Name</label>
-                                    <input type="text" placeholder="P" className="form-input" />
+                                    <input type="text" name="user_lastname" placeholder="P" className="form-input" required />
                                 </div>
                                 <div className="form-group full-width">
                                     <label className="form-label">Business Email</label>
-                                    <input type="email" placeholder="ram@company.com" className="form-input" />
+                                    <input type="email" name="user_email" placeholder="ram@company.com" className="form-input" required />
                                 </div>
                                 <div className="form-group full-width">
                                     <label className="form-label">Project Description</label>
-                                    <textarea rows="4" placeholder="Tell us about your project or business challenges..." className="form-input form-textarea"></textarea>
+                                    <textarea name="message" rows="4" placeholder="Tell us about your project or business challenges..." className="form-input form-textarea" required></textarea>
                                 </div>
                                 <div className="form-group full-width">
                                     <motion.button
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         type="submit"
+                                        disabled={loading}
                                         className="btn btn-primary submit-btn group"
                                     >
-                                        Send Message <Send size={20} className="group-hover-translate" />
+                                        {loading ? 'Sending...' : 'Send Message'} <Send size={20} className="group-hover-translate" />
                                     </motion.button>
                                 </div>
                             </div>
