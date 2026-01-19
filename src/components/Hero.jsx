@@ -47,12 +47,12 @@ const Hero = () => {
                     <p className="text-xl text-slate-600 mb-8 mx-auto lg:mx-0" style={{ maxWidth: '500px' }}>
                         Zustnext empowers your business with cutting-edge analytics, automation, and high-performance applications designed to drive real growth.
                     </p>
-                    <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
+                    <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start items-center lg:items-center">
                         <motion.a
                             href="#contact"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="btn btn-primary w-full sm:w-auto"
+                            className="btn btn-primary w-full sm:w-auto text-center justify-center"
                             style={{ padding: '1rem 2rem', fontSize: '1.25rem', textDecoration: 'none' }}
                         >
                             Start Free Trial
@@ -62,7 +62,7 @@ const Hero = () => {
                             target="_blank"
                             whileHover={{ scale: 1.05, backgroundColor: '#f1f5f9' }}
                             whileTap={{ scale: 0.95 }}
-                            className="btn w-full sm:w-auto"
+                            className="btn w-full sm:w-auto text-center justify-center"
                             style={{ backgroundColor: 'white', border: '1px solid var(--border-light)', padding: '1rem 2rem', fontSize: '1.25rem', textDecoration: 'none' }}
                         >
                             Watch Demo
