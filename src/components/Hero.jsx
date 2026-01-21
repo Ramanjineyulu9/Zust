@@ -58,7 +58,7 @@ const Hero = () => {
                             Start Free Trial
                         </motion.a>
                         <motion.a
-                            href="/zustnext_demo.webp"
+                            href="/zust.mp4"
                             target="_blank"
                             whileHover={{ scale: 1.05, backgroundColor: '#f1f5f9' }}
                             whileTap={{ scale: 0.95 }}
